@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/staticss/remodal.css">
+        <link rel="stylesheet" href="/staticss/remodal-default-theme.css">
+        <script src="/staticjs/remodal.min.js"></script>
+        <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        .color{
+            background: gray !important;
+        }
+        .color:hover{
+            background: white !important;
+            color: black !important;
+        }
+        .cuerpo{
+            background: #edebeb;
+            /* text-align: center; */
+            padding: 15px 15px;
+            margin: 19px 22px;
+            text-align: center;
+        }
+        .button {
+            background-color: #3db1dc;
+            border: none;
+            color: white;
+            padding: 11px 36px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 3px 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.8s ease;
+        }
+        .button:hover{      
+            padding: 10px 35px;  
+            color: #3db1dc;
+            background: #fff;
+            text-decoration: none;
+            border: 1px solid #3db1dc;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 4px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+      
+    
+        </style>
+    </head>
+<body>
+
+
+<div class="row" style="text-align: center">
+    <div class="col-lg-3">
+        <a href="http://localhost:8080/AsignaturaAll" class="button color">Pagina Asignatura</a>
+    </div>
+    <div class="col-lg-3">
+        <a href="http://localhost:8080/AlumnoAll" class="button color">Pagina Alumnos</a>
+    </div>
+    <div class="col-lg-3">
+        <a href="http://localhost:8080/ProfesorAll" class="button color">Pagina Profesores</a>
+    </div>
+    <div class="col-lg-3">
+        <a href="http://localhost:8080/AsignaturaAll" class="button color">Pagina Asignatura</a>
+    </div>
+        
+</div>
+<div class="cuerpo">
+    <h2>Asignatura Pagina </h2>
+    <a href="http://localhost:8080/Asignatura/Nueva" class="button">Nueva Asignatura</a>
+
+    <br/>
+    <br/>
+    <div>
+        <table align="center">
+            <tr >
+            <th>NRC</th>
+            <th>Nombre Asignatura</th>
+            <th>Carrera</th>
+            <th>Semestre</th>
+            %for r in rows:
+                <tr>
+                    <td>{{r[0]}}</td>
+                    <td>{{r[1]}}</td>
+                    <td>{{r[4]}}</td>
+                    <td>{{r[3]}}</td>
+                    <td >
+                        <a href="http://localhost:8080/Asignatura/Detalle/{{r[4]}}"><i class="fa fa-eye" style="font-size:18px;padding-left: 13px;"></i></a> 
+                        <a href="http://localhost:8080/Asignatura/Modificar/{{r[4]}}"><i class="fa fa-pencil" style="font-size:18px;padding-left: 13px;"></i></a>
+                        <a href="http://localhost:8080/Asignatura/Eliminar/{{r[4]}}"><i class="fa fa-trash" style="font-size:18px;padding-left: 13px;"></i></a>  
+                    </td>
+                </tr>
+                
+            %end
+        </table>
+    </div>
+</div>
+<script>
+        // Funcion para evitar que cierre al apretar fuera del boton
+      $(document).ready(function () {
+        $('.remodal-wrapper').unbind('click.remodal');
+         });
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+        </script>
+        
+    <!-- Modal Exito -->
+    <div class="remodal" data-remodal-id="exito">
+            <h1 style="color:green"> ¡ Excelente ! </h1>
+            <p>
+                Se eliminó exitosamente la Asignatura
+            </p>
+            <br>
+            <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
+     <!-- Modal Exito -->
+     <div class="remodal" data-remodal-id="exitoborrar">
+        <h1 style="color:green"> ¡ Excelente ! </h1>
+        <p>
+            Se guardó elimino exitosamente Asignatura
+        </p>
+        <br>
+        <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+    </div>
+      <!-- Modal Error -->
+      <div class="remodal" data-remodal-id="errorborrar">
+            <h1 style="color:red"> ¡ Error ! </h1>
+            <p>
+                <strong>NO</strong> se elimino la Asignatura
+            </p>
+            <br>
+            <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Eliminar/{{rows[0][0]}}" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
+            <!-- Modal Exito -->
+    <div class="remodal" data-remodal-id="exitoupdate">
+            <h1 style="color:green"> ¡ Excelente ! </h1>
+            <p>
+                Se actualizo exitosamente la Asignatura
+            </p>
+            <br>
+            <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
+          <!-- Modal Error -->
+          <div class="remodal" data-remodal-id="errorupdate">
+                <h1 style="color:red"> ¡ Error ! </h1>
+                <p>
+                    <strong>NO</strong> se actualizo la  Asignatura
+                </p>
+                <br>
+                <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+            </div>
+</body>
+</html>
+ 

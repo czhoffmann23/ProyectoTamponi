@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/staticss/remodal.css">
+    <link rel="stylesheet" href="/staticss/remodal-default-theme.css">
+    <script src="/staticjs/remodal.min.js"></script>
+
+    <style>
+        a:hover{
+            color: white;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        .button {
+            background-color: #3db1dc;
+            border: none;
+            color: white;
+            padding: 11px 36px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 3px 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.8s ease;
+        }
+
+        .button:hover {
+            padding: 10px 35px;
+            color: #3db1dc;
+            background: #fff;
+            text-decoration: none;
+            border: 1px solid #3db1dc;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 4px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Nueva Asignatura </h2>
+                <form class="form-horizontal needs-validation" method="post" action="/" novalidate>
+                    <fieldset>
+
+
+                        <!-- Nombre input-->
+                        <div class="form-row">
+                            <label class="col-md-3 control-label" for="nombre">Nombre de Asignatura</label>
+                            <div class="col-md-9">
+                                <input id="nombre" name="nombre" type="text" placeholder="Nombre de Asignatura" class="form-control" required>
+                                <div class="invalid-feedback">
+                                    Porfavor ingresa asignatura valida.
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <!-- Semestre input-->
+                        <div class="form-row ">
+                            <label class="col-md-3 control-label" for="semestre">Semestre</label>
+                            <div class="col-md-9">
+                                <select id="semestre" name="semestre" class="form-control">
+                            <option value="Semestre 1">Semestre 1</option>
+                            <option value="Semestre 2">Semestre 2</option>
+                            <option value="Semestre 3">Semestre 3</option>
+                            <option value="Semestre 4">Semestre 4</option>
+                            <option value="Semestre 5">Semestre 5</option>
+                            <option value="Semestre 6">Semestre 6</option>
+                            <option value="Semestre 7">Semestre 7</option>
+                            <option value="Semestre 8">Semestre 8</option>
+                            <option value="Semestre 9">Semestre 9</option>
+                            <option value="Semestre 10">Semestre 10</option>
+                        </select>
+                            </div>
+                        </div>
+                        <br/>
+                        <!-- Carrera input-->
+                        <div class="form-row ">
+                            <label class="col-md-3 control-label" for="carrera">Carrera</label>
+                            <div class="col-md-9">
+                                <select id="carrera" name="carrera" class="form-control">
+                            <option value="Ingenieria Civil en Informatica">Ingenieria Civil en Informatica</option>
+                            <option value="Ingenieria Civil Industrial">Ingenieria Civil Industrial</option>
+                        </select>
+                            </div>
+                        </div>
+                        <br/>
+                        <!-- NRC input-->
+                        <div class="form-row ">
+                            <label class="col-md-3 control-label" for="nrc">NRC</label>
+                            <div class="col-md-9">
+                                <input id="nrc" name="nrc" pattern="[0-9]+" type="text" placeholder="NRC" class="form-control" required>
+                                <div class="invalid-feedback">
+                                    Porfavor ingresa nrc valido.
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <!-- Form actions -->
+                        <div class="form-row ">
+                            <div class="col-md-6 text-left">
+                                <a href="http://localhost:8080/AsignaturaAll" class="button">Volver a Asignaturas</a>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button type="submit" class="button">Guardar Asignatura</button >
+                    </div>
+                </div>
+                </fieldset>
+            </form>
+            <script>
+                    // Funcion para evitar que cierre al apretar fuera del boton
+                  $(document).ready(function () {
+                    $('.remodal-wrapper').unbind('click.remodal');
+                     });
+                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    (function() {
+                      'use strict';
+                      window.addEventListener('load', function() {
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.getElementsByClassName('needs-validation');
+                        // Loop over them and prevent submission
+                        var validation = Array.prototype.filter.call(forms, function(form) {
+                          form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                              event.preventDefault();
+                              event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                          }, false);
+                        });
+                      }, false);
+                    })();
+                    </script>
+        </div>            
+    </div>
+</div>
+
+    <!-- Modal Exito -->
+    <div class="remodal" data-remodal-id="exito">
+        <h1 style="color:green"> ¡ Excelente ! </h1>
+        <p>
+            Se guardó exitosamente la nueva Asignatura
+        </p>
+        <br>
+        <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+    </div>
+      <!-- Modal Error -->
+      <div class="remodal" data-remodal-id="error">
+            <h1 style="color:red"> ¡ Error ! </h1>
+            <p>
+                <strong>NO</strong> se guardó la nueva Asignatura
+            </p>
+            <br>
+            <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
+         <!-- Modal Error de NRC -->
+      <div class="remodal" data-remodal-id="errornrc">
+        <h1 style="color:red"> ¡ Error ! </h1>
+        <p>
+            <strong>Ya existe</strong> el NRC de la nueva Asignatura
+        </p>
+        <br>
+        <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/staticss/remodal.css">
+    <link rel="stylesheet" href="/staticss/remodal-default-theme.css">
+    <script src="/staticjs/remodal.min.js"></script>
+
+    <style>
+        a:hover{
+            color: white;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        .button {
+            background-color: #3db1dc;
+            border: none;
+            color: white;
+            padding: 11px 36px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 3px 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.8s ease;
+        }
+
+        .button:hover {
+            padding: 10px 35px;
+            color: #3db1dc;
+            background: #fff;
+            text-decoration: none;
+            border: 1px solid #3db1dc;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 4px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Detalle de Asignatura </h2>
+                <table style="width:60%">
+                   
+                    <tr>
+                        <th>Nombre</th>
+                        <td>{{rows[0][0]}}</td>
+                    </tr>
+                    <tr>
+                        <th>Asignatura</th>
+                        <td>{{rows[0][1]}}</td>
+                    </tr>
+                    <tr>
+                        <th>Carrera</th>
+                        <td>{{rows[0][3]}}</td>
+                    </tr>
+                    <tr>
+                        <th>Nrc</th>
+                        <td>{{rows[0][4]}}</td>
+                    </tr>
+                  </table>
+                <div class="row ">
+                    <div class="col-md-6 text-left">
+                        <a href="http://localhost:8080/AsignaturaAll" class="button">Volver a Asignaturas</a>
+                    </div>
+        </div>            
+    </div>
+</div>
+</body>
+
+</html>
