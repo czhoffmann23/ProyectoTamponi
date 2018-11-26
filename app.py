@@ -7,6 +7,8 @@ sys.path.append('./controllers/')
 from profController import *
 sys.path.append('./controllers/')
 from alumController import *
+sys.path.append('./controllers/')
+from salaController import *
 
 @error(404)
 def error404(error):
@@ -27,6 +29,11 @@ def asignaturas():
 def asignaturas():
     resultado=AlumnoAll()
     return template('AlumnoAll',rows=resultado)
+
+@route('/SalaAll')
+def asignaturas():
+    resultado=SalaAll()
+    return template('SalaAll',rows=resultado)
 #===========  Detalle     ===========
 @route('/Profesor/Detalle/<id>')
 def profesorDetalle(id):
@@ -43,6 +50,11 @@ def asginaturaDetalle(id):
 def alumnoDetalle(id):
     resultado=AlumnoDetalle(id)
     return template('AlumnoDetalle',rows=resultado)
+
+@route('/Sala/Detalle/<id>')
+def salaDetalle(id):
+    resultado=SalaDetalle(id)
+    return template('SalaDetalle',rows=resultado)
 
 #===========  Modificar   ===========
 @route('/Profesor/Modificar/<id>')
@@ -87,6 +99,25 @@ def process():
         redirect(url('/AlumnoAll') + '#exitoupdate')
     if opcion == 2:          #error en ingreso
         redirect(url('/AlumnoAll') + '#errorupdate')
+@route('/Sala/Modificar/<id>')
+def profesorModificar(id):
+    resultado=SalaDetalle(id)
+    return template('SalaModificar',rows=resultado)
+@route('/modificarsala', method="POST")
+def process():
+    obj=[]
+    codigo = request.forms.get('codigo')
+    edificio = request.forms.get('edificio')
+    curso = request.forms.get('curso')
+    obj.append(codigo)
+    obj.append(edificio)
+    obj.append(curso)
+  
+    opcion=SalaUpdate(obj)
+    if opcion==1: #exito
+        redirect(url('/SalaAll') + '#exitoupdate')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/SalaAll') + '#errorupdate')
 @route('/Asignatura/Modificar/<id>')
 def asignaturaModificar(id):
     resultado=AsignaturasDetalle(id)
@@ -128,13 +159,20 @@ def asignaturaEliminar(id):
         redirect(url('/AsignaturaAll') + '#errorborrar')
 
 @route('/Alumno/Eliminar/<id>')
-def asignaturaEliminar(id):
+def alumnoEliminar(id):
     opcion=AlumnoDelete(id)
     if opcion==1: #exito
         redirect(url('/AlumnoAll') + '#exitoborrar')
     if opcion == 2:          #error en ingreso
         redirect(url('/AlumnoAll') + '#errorborrar')
 
+@route('/Sala/Eliminar/<id>')
+def salaEliminar(id):
+    opcion=SalaDelete(id)
+    if opcion==1: #exito
+        redirect(url('/SalaAll') + '#exitoborrar')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/SalaAll') + '#errorborrar')
 #===========    Crear     ===========
 @route('/Profesor/Nuevo')
 def profesoresCrear():
@@ -163,7 +201,7 @@ def process():
     return template('ProfesorNueva')
 
 @route('/Alumno/Nuevo')
-def profesoresCrear():
+def alumnosCrear():
     return template('AlumnoNueva')
 
 @route('/alumnonuevo', method="POST")
@@ -187,6 +225,29 @@ def process():
         redirect(url('/Alumno/Nuevo') + '#errornrc')
         
     return template('AlumnoNueva')
+@route('/Sala/Nuevo')
+def salaCrear():
+    return template('SalaNueva')
+
+@route('/salanuevo', method="POST")
+def process():
+    obj=[]
+    codigo = request.forms.get('codigo')
+    edificio = request.forms.get('edificio')
+    curso = request.forms.get('curso')
+    obj.append(codigo)
+    obj.append(edificio)
+    obj.append(curso)
+  
+    opcion=SalaCreate(obj)
+    if opcion==1: #exito
+        redirect(url('/Sala/Nuevo') + '#exito')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/Sala/Nuevo') + '#error')
+    if opcion ==3:  #error de nrc
+        redirect(url('/Sala/Nuevo') + '#errornrc')
+        
+    return template('SalaNueva')
 
 @route('/Asignatura/Nueva')
 def asignaturaCrear():

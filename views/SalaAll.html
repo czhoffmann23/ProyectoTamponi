@@ -84,8 +84,8 @@
         
 </div>
 <div class="cuerpo">
-    <h2>Alumno Pagina </h2>
-    <a href="http://localhost:8080/Alumno/Nuevo" class="button">Nuevo Alumno</a>
+    <h2>Sala Pagina </h2>
+    <a href="http://localhost:8080/Sala/Nuevo" class="button">Nueva Sala</a>
 
     <br/>
     <br/>
@@ -93,19 +93,17 @@
         <table align="center">
             <tr >
             <th>Nombre</th>
-            <th>Apellido</th>
+            <th>Edificio</th>
             <th>Curso</th>
-            <th>Rut</th>
             %for r in rows:
                 <tr>
                     <td>{{r[0]}}</td>
                     <td>{{r[2]}}</td>
-                    <td>{{r[4]}}</td>
-                    <td>{{r[3]}}</td>
+                    <td>{{r[1]}}</td>
                     <td >
-                        <a href="http://localhost:8080/Alumno/Detalle/{{r[3]}}"><i class="fa fa-eye" style="font-size:18px;padding-left: 13px;"></i></a> 
-                        <a href="http://localhost:8080/Alumno/Modificar/{{r[3]}}"><i class="fa fa-pencil" style="font-size:18px;padding-left: 13px;"></i></a>
-                        <a href="http://localhost:8080/Alumno/Eliminar/{{r[3]}}"><i class="fa fa-trash" style="font-size:18px;padding-left: 13px;"></i></a>  
+                        <a href="http://localhost:8080/Sala/Detalle/{{r[0]}}"><i class="fa fa-eye" style="font-size:18px;padding-left: 13px;"></i></a> 
+                        <a href="http://localhost:8080/Sala/Modificar/{{r[0]}}"><i class="fa fa-pencil" style="font-size:18px;padding-left: 13px;"></i></a>
+                        <a href="http://localhost:8080/Sala/Eliminar/{{r[0]}}"><i class="fa fa-trash" style="font-size:18px;padding-left: 13px;"></i></a>  
                     </td>
                 </tr>
                 
@@ -142,46 +140,46 @@
     <div class="remodal" data-remodal-id="exito">
             <h1 style="color:green"> ¡ Excelente ! </h1>
             <p>
-                Se eliminó exitosamente el Alumno
+                Se eliminó exitosamente la Sala
             </p>
             <br>
-            <a style="text-decoration:none" href="http://localhost:8080/AlumnoAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+            <a style="text-decoration:none" href="http://localhost:8080/SalaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
         </div>
      <!-- Modal Exito -->
      <div class="remodal" data-remodal-id="exitoborrar">
         <h1 style="color:green"> ¡ Excelente ! </h1>
         <p>
-            Se elimino exitosamente Alumno
+            Se elimino exitosamente Sala
         </p>
         <br>
-        <a style="text-decoration:none" href="http://localhost:8080/AlumnoAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        <a style="text-decoration:none" href="http://localhost:8080/SalaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
     </div>
       <!-- Modal Error -->
       <div class="remodal" data-remodal-id="errorborrar">
             <h1 style="color:red"> ¡ Error ! </h1>
             <p>
-                <strong>NO</strong> se elimino Alumno
+                <strong>NO</strong> se elimino Sala
             </p>
             <br>
-            <a style="text-decoration:none" href="http://localhost:8080/Alumno/Eliminar/{{rows[0][0]}}" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+            <a style="text-decoration:none" href="http://localhost:8080/Sala/Eliminar/{{rows[0][0]}}" data-remodal-action="confirm" class="remodal-confirm">OK</a>
         </div>
             <!-- Modal Exito -->
     <div class="remodal" data-remodal-id="exitoupdate">
             <h1 style="color:green"> ¡ Excelente ! </h1>
             <p>
-                Se actualizo exitosamente el Alumno
+                Se actualizo exitosamente la Sala
             </p>
             <br>
-            <a style="text-decoration:none" href="http://localhost:8080/AlumnoAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+            <a style="text-decoration:none" href="http://localhost:8080/SalaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
         </div>
           <!-- Modal Error -->
           <div class="remodal" data-remodal-id="errorupdate">
                 <h1 style="color:red"> ¡ Error ! </h1>
                 <p>
-                    <strong>NO</strong> se actualizo el Alumno
+                    <strong>NO</strong> se actualizo la Sala
                 </p>
                 <br>
-                <a style="text-decoration:none" href="http://localhost:8080/Alumno/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+                <a style="text-decoration:none" href="http://localhost:8080/Sala/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
             </div>
 </body>
 </html>
